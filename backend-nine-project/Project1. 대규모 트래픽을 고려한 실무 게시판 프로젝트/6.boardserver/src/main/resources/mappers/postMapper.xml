@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fastcampus.boardserver.mapper.PostMapper">
+
+    <insert id="register" parameterType="com.fastcampus.boardserver.dto.PostDTO">
+        INSERT INTO post (
+                          name
+                          , isAdmin
+                          , contents
+                          , createTime
+                          , updateTime
+                          , views
+                          , userId
+                          , categoryId
+                          )
+        VALUES (
+                #{name}
+                , #{isAdmin}
+                , #{contents}
+                , NOW()
+                , NOW()
+                , #{views}
+                , #{userId}
+                , #{categoryId}
+                )
+    </insert>
+
+    <select id="selectMyPosts" parameterType ="java.lang.Long" resultType="com.fastcampus.boardserver.dto.PostDTO">
+        SELECT
+            id
+            , name
+            , isAdmin
+            , contents
+            , createTime
+            , updateTime
+            , views
+        FROM post
+        WHERE userId = #{userId}
+    </select>
+
+    <update id="updatePost" parameterType="com.fastcampus.boardserver.dto.PostDTO">
+        UPDATE post
+        SET
+            name = #{name}
+            , isAdmin = #{isAdmin}
+            , contents = #{contents}
+            , views = #{views}
+            , userId = #{userId}
+            , categoryId = #{categoryId}
+            , updateTime = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deletePost" parameterType="java.lang.Long">
+        DELETE FROM post
+        WHERE id = #{id}
+    </delete>
+
+    <select id="selectPost" parameterType="java.lang.Long" resultType="com.fastcampus.boardserver.dto.PostDTO">
+        SELECT
+            id
+            , name
+            , isAdmin
+            , contents
+            , createTime
+            , views
+            , userId
+            , categoryId
+            , updateTime
+        FROM post
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insertComment" parameterType="com.fastcampus.boardserver.dto.CommentDTO">
+        INSERT INTO comment (
+                             contents
+                             , createTime
+                             , updateTime
+                             , userId
+                             , postId
+                             , commentId
+                             )
+        VALUES (
+                #{contents}
+                , NOW()
+                , NOW()
+                , #{userId}
+                , #{postId}
+                , #{commentId}
+                )
+    </insert>
+
+    <update id="updateComment" parameterType="com.fastcampus.boardserver.dto.CommentDTO">
+        UPDATE comment
+        SET
+            contents = #{contents}
+            , updateTime = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectComment" parameterType="java.lang.Long" resultType="com.fastcampus.boardserver.dto.CommentDTO">
+        SELECT
+            id
+            , contents
+            , createTime
+            , updateTime
+            , userId
+            , postId
+            , commentId
+        FROM comment
+        WHERE id = #{id}
+    </select>
+
+    <update id="deleteComment" parameterType="java.lang.Long">
+        UPDATE comment
+        SET
+            isDelete = 1
+          , updateTime = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <insert id="registerTag" parameterType="com.fastcampus.boardserver.dto.TagDTO">
+        INSERT INTO tag (
+                         name
+                         )
+        VALUES (
+                #{name}
+                )
+    </insert>
+
+    <insert id="registerPosttag" >
+        INSERT INTO posttag (
+                              postId
+                              , tagId
+                              )
+        VALUES (
+                #{postId}
+                , #{tagId}
+                )
+    </insert>
+
+    <select id="selectTag" parameterType="java.lang.Long" resultType="com.fastcampus.boardserver.dto.TagDTO">
+        SELECT
+            id
+            , name
+        FROM tag
+        WHERE id = #{tagId}
+    </select>
+
+    <delete id="deletePosttag">
+        DELETE FROM posttag
+        WHERE 1=1
+          AND postId = #{postId}
+          AND tagId = #{tagId}
+    </delete>
+
+
+    <delete id="deletePosttagByPostID" parameterType="java.lang.Long">
+        DELETE FROM posttag
+        WHERE postId = #{postId}
+    </delete>
+
+
+    <select id="selectTags" parameterType="java.lang.Long" resultType="com.fastcampus.boardserver.dto.TagDTO">
+        SELECT
+            tag.id
+            , tag.name
+        FROM tag
+        JOIN posttag ON tag.id = posttag.tagId
+        WHERE posttag.postId = #{postId}
+    </select>
+
+</mapper>

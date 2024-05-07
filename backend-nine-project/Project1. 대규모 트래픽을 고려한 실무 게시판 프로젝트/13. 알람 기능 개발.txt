@@ -1,0 +1,69 @@
+알람 이란
+Spring Boot 애플리케이션 내에서 이벤트, 경고 또는 에러와 같은 중요한 상황을 감지하고 이를 관리자 또는 개발자에게 알리는 기능을 가리킵니다. 알람은 애플리케이션의 
+신속한 대응과 문제 해결을 돕는 데 중요한 역할을 합니다.
+
+- 장애 감지와 대응 (모니터링 시스템을 통해서 CPU: 80%이상, 메모리: 100% 개발자에게 알림 역할)
+- 서비스 가용성 유지 (여러 인스턴스를 로드벨런싱 할때 헬스 체크 항목 이 예시임)
+- 성능 모니터링 (어플리케이션의 응답시간, CPU, 메모리)
+- 비용 절감 (클라우드에 서버리스 아키텍처, 클라우드 서비스)
+- 사용자 경험 향상 (사용자 요청 시간을 추적)
+- 예방적 조치 (로그와 모니터링 분석을 진행한다.)
+
+AWS SNS 연동
+
+Amazon Simple Notification Service는 AWS의 클라우드 기반 메시징 서비스
+
+서비스 또는 시스템 간에 다양한 메시지를 안전하게 전송하고 관리 할 수 있습니다.
+
+- 푸시 알람
+- 다중 프로토콜 지원(HTTP, HTTPS, SMS, 이메일, SQS, Lamda 등 지원)
+- 이벤트 기반 아키텍처
+- 확장성과 신뢰성
+- 미리 알림 및 모니터링
+
+AWS SNS 예제 코드
+
+aws.accessKeyId : 접근키
+aws.secretKey :  비밀번호 키, 노출되면 안댐
+aws.sns.topicArn : Arn 항목은 AWS Resource Name(ARN)을 의미한다
+
+SLACK 알람 연동
+메신저 플랫폼인 Slack은 다양한 형태의 알람 및 통지 기능을 제공하며, 이를 통해 사용자들이 팀 간 소통, 협업, 작업 관리를 용이하게 할 수 있습니다. 
+Slack 알람은 주로 같은 목적으로 사용됩니다.
+- 메시지 알람
+- 이벤트 알람
+- 스케쥴 및 일정 알람
+- 앱 및 서비스 통합 알람
+- 사용자 정의 알람
+
+SLACK 알람 예제 코드
+
+slack.webhook.url은 Slack incoming Webhooks URL을 나타냅니다. 이 값은 application.properties 또는 application.yml에 설정되어야 합니다.
+어플리케이션에서 SlackNotificationService를 사용하여 Slack으로 메시지를 전송할 수 있습니다.
+
+slack.webhook.url=https://hooks.slack.com/services/your/webhook/url
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

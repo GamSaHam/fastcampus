@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fastcampus.boardserver.mapper.PostSearchMapper">
+
+    <select id="selectPosts" parameterType="com.fastcampus.boardserver.controller.PostSearchController$PostSearchRequest" resultType="com.fastcampus.boardserver.dto.PostDTO">
+        SELECT
+            id
+             , name
+             , isAdmin
+             , contents
+             , createTime
+             , views
+             , categoryId
+             , userId
+             , updateTime
+        FROM post
+        WHERE 1=1
+        <if test="name != null and name != ''">
+            AND name LIKE CONCAT('%', #{name}, '%')
+        </if>
+        <if test="contents != null and contents != ''">
+            AND contents LIKE CONCAT('%', #{contents}, '%')
+        </if>
+        <if test="categoryId != null">
+            AND categoryId = #{categoryId}
+        </if>
+        <if test="sortStatus.toString() == 'NEWEST'">
+            ORDER BY createTime DESC
+        </if>
+        <if test="sortStatus.toString() == 'OLDEST'">
+            ORDER BY createTime ASC
+        </if>
+        <if test="sortStatus.toString() == 'CATEGORIES'">
+            ORDER BY categoryId
+        </if>
+
+    </select>
+
+
+    <select id="selectPostsByTagName" parameterType="java.lang.String" resultType="com.fastcampus.boardserver.dto.PostDTO">
+        SELECT p.id
+             , p.name
+             , p.isAdmin
+             , p.contents
+             , p.createTime
+             , p.views
+             , p.categoryId
+             , p.userId
+             , p.updateTime
+        FROM post AS p
+                 INNER JOIN posttag AS pt ON p.id = pt.postId
+                 INNER JOIN tag AS t ON pt.tagId = t.id
+        WHERE 1 = 1
+          AND t.name LIKE CONCAT('%', #{name}, '%')
+        order by createTime desc
+    </select>
+
+
+</mapper>

@@ -1,0 +1,71 @@
+https://www.websequencediagrams.com/
+
+title 게시글 등록 시퀀스
+
+User->Controller: 게시글 등록 요청
+note right of Controller:
+    예시 request Body
+    POST {{url}}/posts
+    {
+     "name": "게시글 등록 테스트",
+     "isAdmin": false,
+     "contents": "게시글 내용 테스트",
+     "createTime": "2023-10-23 00:00:00",
+     "views": 1,
+     "categoryId": 1,
+     "userId": 1
+     }
+end note
+Controller->Service: postDTO 맵핑 및 로깅처리
+Service->Validation: 유요성 검사(로그인유무체크, 필드유효성, 어드민 유무체크)
+Validation->Service:
+Service->DAO: DB 요청 중 위한 Mapper 및 예외처리
+DAO->DB: mysql 쿼리를 통한 db 실행
+DB->DAO:
+DAO->Service:
+Service->Controller:
+Controller->User:
+
+
+저장 후 
+Share & Export...
+
+
+//
+title 게시글 검색 시퀀스
+
+User->Controller: 게시글 검색 요청
+note right of Controller:
+    예시 request Body
+    POST {{url}}/posts/search
+    {
+        "name": "검색 테스트"
+        , "categoryName": "자유게시판"
+        , "content": "내용 테스트"
+        , "tags": ["개발 블로그", "java", "spring"]
+        , "orderDir": "DESC"
+        , "orderType": "views"
+    }
+end note over
+
+Controller->Service: PostDTO 맵핑 및 로깅처리
+Service->Validation: 유효성 검사(필드 유효성, 필드존재 유무 체크)
+Validation->Service:
+Service->DAO: DB 요청을 위한 Mapper 매핑 예외처리
+
+alt 레디스에 데이터가 있을때
+    DAO->Redis: 검색 key를 통한 데이터를 조회
+    Redis-->DAO:
+else 없다면
+    DAO->Redis: 검색 key를 통한 데이터를 조회
+    Redis-->DAO: 레디스에 데이터가 없을떄 MYSQL whghl
+    DAO->DB: mysql 쿼리를 통한 db실행
+    DB->DAO:
+end
+
+DAO-->Service:
+Service-->Controller:
+Controller-->User:
+
+저장 후
+Share & Export...

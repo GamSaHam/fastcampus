@@ -1,0 +1,134 @@
+ERD 구성요소
+엔티티(Entity): 현실 세계에서 독립적으로 존재하고 식별 가능한 객체나 사물을 나타냅니다. 예를 들어, "사용자", "주문"
+속성(Attibute): 엔티티의 특성이나 속성을 나타냅니다. 예를 들어, "사용자"엔티티의 속성으로 "이름", "나이", "이메일"
+관계(Relationship): 엔티티의 연결이나 연관성을 표현합니다. 관계에는 일대일(1:1), 일대다(1:N), 다대다(N:M) 등 다양한 유형이 있습니다.
+기본 키(Primary Key): 엔티티의 고유 식별자로 사용되는 속성을 나타냅니다. 각 엔티티는 기본 키를 가지고 있어야 한다.
+외래 키(Foreign Key): 다른 테이블의 기본 키를 참조하는 속성으로, 관계를 나타내는 데 사용됩니다.
+
+AqueryTool 항목
+
+// 스크립트 항목
+-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+
+-- User Table Create SQL
+-- 테이블 생성 SQL - User
+CREATE TABLE User
+(
+    `id`          INT UNSIGNED                          NOT NULL    AUTO_INCREMENT, 
+    `userId`      VARCHAR(50)                           NULL, 
+    `password`    VARCHAR(50)                           NULL, 
+    `nickname`    VARCHAR(50)                           NULL, 
+    `isAdmin`     TINYINT(1)                            NULL, 
+    `createTime`  DATETIME                              NULL, 
+    `isWithdraw`  TINYINT(1)                            NULL, 
+    `status`      ENUM('DEFAULT', 'ADMIN', 'DELETE')    NULL        DEFAULT 'DEFAULT', 
+    `updateTime`  DATETIME                              NULL, 
+     PRIMARY KEY (id)
+);
+
+
+-- Category Table Create SQL
+-- 테이블 생성 SQL - Category
+CREATE TABLE Category
+(
+    `id`    INT UNSIGNED    NOT NULL    AUTO_INCREMENT, 
+    `name`  VARCHAR(50)     NULL, 
+     PRIMARY KEY (id)
+);
+
+
+-- Post Table Create SQL
+-- 테이블 생성 SQL - Post
+CREATE TABLE Post
+(
+    `id`          INT UNSIGNED    NOT NULL    AUTO_INCREMENT, 
+    `name`        VARCHAR(50)     NULL, 
+    `isAdmin`     TINYINT(1)      NULL, 
+    `contents`    VARCHAR(500)    NULL, 
+    `createTime`  DATETIME        NULL, 
+    `views`       INT             NULL, 
+    `userId`      INT UNSIGNED    NULL, 
+    `categoryId`  INT UNSIGNED    NULL, 
+     PRIMARY KEY (id)
+);
+
+-- Foreign Key 설정 SQL - Post(userId) -> User(id)
+ALTER TABLE Post
+    ADD CONSTRAINT FK_Post_userId_User_id FOREIGN KEY (userId)
+        REFERENCES User (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+-- Foreign Key 삭제 SQL - Post(userId)
+-- ALTER TABLE Post
+-- DROP FOREIGN KEY FK_Post_userId_User_id;
+
+-- Foreign Key 설정 SQL - Post(categoryId) -> Category(id)
+ALTER TABLE Post
+    ADD CONSTRAINT FK_Post_categoryId_Category_id FOREIGN KEY (categoryId)
+        REFERENCES Category (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+-- Foreign Key 삭제 SQL - Post(categoryId)
+-- ALTER TABLE Post
+-- DROP FOREIGN KEY FK_Post_categoryId_Category_id;
+
+
+-- File Table Create SQL
+-- 테이블 생성 SQL - File
+CREATE TABLE File
+(
+    `id`         INT UNSIGNED    NOT NULL    AUTO_INCREMENT, 
+    `path`       VARCHAR(50)     NULL, 
+    `name`       VARCHAR(50)     NULL, 
+    `extension`  VARCHAR(50)     NULL, 
+    `postId`     INT UNSIGNED    NULL, 
+     PRIMARY KEY (id)
+);
+
+-- Foreign Key 설정 SQL - File(postId) -> Post(id)
+ALTER TABLE File
+    ADD CONSTRAINT FK_File_postId_Post_id FOREIGN KEY (postId)
+        REFERENCES Post (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+-- Foreign Key 삭제 SQL - File(postId)
+-- ALTER TABLE File
+-- DROP FOREIGN KEY FK_File_postId_Post_id;
+
+
+-- Tag Table Create SQL
+-- 테이블 생성 SQL - Tag
+CREATE TABLE Tag
+(
+    `id`    INT UNSIGNED    NOT NULL    AUTO_INCREMENT, 
+    `name`  VARCHAR(50)     NULL, 
+     PRIMARY KEY (id)
+);
+
+
+-- PostTag Table Create SQL
+-- 테이블 생성 SQL - PostTag
+CREATE TABLE PostTag
+(
+    `id`      INT UNSIGNED    NOT NULL    AUTO_INCREMENT, 
+    `postId`  INT UNSIGNED    NULL, 
+    `tagId`   INT UNSIGNED    NULL, 
+     PRIMARY KEY (id)
+);
+
+-- Foreign Key 설정 SQL - PostTag(tagId) -> Tag(id)
+ALTER TABLE PostTag
+    ADD CONSTRAINT FK_PostTag_tagId_Tag_id FOREIGN KEY (tagId)
+        REFERENCES Tag (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+-- Foreign Key 삭제 SQL - PostTag(tagId)
+-- ALTER TABLE PostTag
+-- DROP FOREIGN KEY FK_PostTag_tagId_Tag_id;
+
+-- Foreign Key 설정 SQL - PostTag(postId) -> File(id)
+ALTER TABLE PostTag
+    ADD CONSTRAINT FK_PostTag_postId_File_id FOREIGN KEY (postId)
+        REFERENCES File (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+-- Foreign Key 삭제 SQL - PostTag(postId)
+-- ALTER TABLE PostTag
+-- DROP FOREIGN KEY FK_PostTag_postId_File_id;
+
+

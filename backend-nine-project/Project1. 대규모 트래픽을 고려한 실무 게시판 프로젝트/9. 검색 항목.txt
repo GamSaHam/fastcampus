@@ -1,0 +1,8 @@
+Mybatis 항목에서 <where> 항목 <if> 항목을 사용을 진행
+
+Redis 연동 및 메타 정보 설정
+RedisConnectionFactory, RedisTemplate 등을 설정하여 구현을 함
+
+@Cacheable, @CacheEvict 항목 설명
+
+

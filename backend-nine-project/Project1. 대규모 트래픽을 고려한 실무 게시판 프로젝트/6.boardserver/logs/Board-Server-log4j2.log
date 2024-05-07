@@ -1,0 +1,56 @@
+2024/05/07 13:26:29,666 [INFO ] [org.springframework.boot.StartupInfoLogger] [main]- Started BoardserverApplication in 3.007 seconds (process running for 4.255)
+ -2024/05/07 13:26:29,687 [DEBUG] [org.springframework.boot.availability.ApplicationAvailabilityBean] [main]- Application availability state LivenessState changed to CORRECT
+ -2024/05/07 13:26:29,691 [DEBUG] [org.springframework.boot.availability.ApplicationAvailabilityBean] [main]- Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+ -2024/05/07 13:26:34,159 [INFO ] [org.apache.juli.logging.DirectJDKLog] [http-nio-8080-exec-2]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+ -2024/05/07 13:26:34,159 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-2]- Initializing Servlet 'dispatcherServlet'
+ -2024/05/07 13:26:34,160 [DEBUG] [org.springframework.web.servlet.DispatcherServlet] [http-nio-8080-exec-2]- Detected StandardServletMultipartResolver
+ -2024/05/07 13:26:34,160 [DEBUG] [org.springframework.web.servlet.DispatcherServlet] [http-nio-8080-exec-2]- Detected AcceptHeaderLocaleResolver
+ -2024/05/07 13:26:34,160 [DEBUG] [org.springframework.web.servlet.DispatcherServlet] [http-nio-8080-exec-2]- Detected FixedThemeResolver
+ -2024/05/07 13:26:34,161 [DEBUG] [org.springframework.web.servlet.DispatcherServlet] [http-nio-8080-exec-2]- Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4d815a49
+ -2024/05/07 13:26:34,161 [DEBUG] [org.springframework.web.servlet.DispatcherServlet] [http-nio-8080-exec-2]- Detected org.springframework.web.servlet.support.SessionFlashMapManager@506149fc
+ -2024/05/07 13:26:34,161 [DEBUG] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-2]- enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+ -2024/05/07 13:26:34,162 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-2]- Completed initialization in 3 ms
+ -2024/05/07 13:26:34,173 [DEBUG] [org.springframework.core.log.LogFormatUtils] [http-nio-8080-exec-2]- POST "/create-topic?topicName=notifly3", parameters={masked}
+ -2024/05/07 13:26:34,190 [DEBUG] [org.springframework.web.servlet.handler.AbstractHandlerMapping] [http-nio-8080-exec-2]- Mapped to com.fastcampus.boardserver.controller.SnsController#createTopic(String)
+ -2024/05/07 13:26:35,204 [INFO ] [com.fastcampus.boardserver.controller.SnsController] [http-nio-8080-exec-2]- topic name = arn:aws:sns:ap-northeast-2:781076985467:notifly3
+ -2024/05/07 13:26:35,226 [INFO ] [com.fastcampus.boardserver.controller.SnsController] [http-nio-8080-exec-2]- topic list = ListTopicsResponse(Topics=[Topic(TopicArn=arn:aws:sns:ap-northeast-2:781076985467:notifly3), Topic(TopicArn=arn:aws:sns:ap-northeast-2:781076985467:testfastcampus.fifo)])
+ -2024/05/07 13:26:35,237 [DEBUG] [org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor] [http-nio-8080-exec-2]- Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json, application/cbor]
+ -2024/05/07 13:26:35,238 [DEBUG] [org.springframework.core.log.LogFormatUtils] [http-nio-8080-exec-2]- Writing ["TOPIC CREATING SUCCESS"]
+ -2024/05/07 13:26:35,243 [DEBUG] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-2]- Completed 200 OK
+ -2024/05/07 13:28:18,198 [DEBUG] [org.springframework.core.log.LogFormatUtils] [http-nio-8080-exec-5]- POST "/create-topic?topicName=board-server", parameters={masked}
+ -2024/05/07 13:28:18,198 [DEBUG] [org.springframework.web.servlet.handler.AbstractHandlerMapping] [http-nio-8080-exec-5]- Mapped to com.fastcampus.boardserver.controller.SnsController#createTopic(String)
+ -2024/05/07 13:28:18,314 [INFO ] [com.fastcampus.boardserver.controller.SnsController] [http-nio-8080-exec-5]- topic name = arn:aws:sns:ap-northeast-2:781076985467:board-server
+ -2024/05/07 13:28:18,332 [INFO ] [com.fastcampus.boardserver.controller.SnsController] [http-nio-8080-exec-5]- topic list = ListTopicsResponse(Topics=[Topic(TopicArn=arn:aws:sns:ap-northeast-2:781076985467:board-server), Topic(TopicArn=arn:aws:sns:ap-northeast-2:781076985467:notifly3), Topic(TopicArn=arn:aws:sns:ap-northeast-2:781076985467:testfastcampus.fifo)])
+ -2024/05/07 13:28:18,335 [DEBUG] [org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor] [http-nio-8080-exec-5]- Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json, application/cbor]
+ -2024/05/07 13:28:18,336 [DEBUG] [org.springframework.core.log.LogFormatUtils] [http-nio-8080-exec-5]- Writing ["TOPIC CREATING SUCCESS"]
+ -2024/05/07 13:28:18,336 [DEBUG] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-5]- Completed 200 OK
+ -2024/05/07 13:31:34,560 [DEBUG] [org.springframework.core.log.LogFormatUtils] [http-nio-8080-exec-1]- POST "/subscribe?endpoint=https://webhook.site/23f4c3d9-a5cd-4883-88cf-5bb10b21865e&topicArn=arn:aws:sns:ap-northeast-2:781076985467:notifly3", parameters={masked}
+ -2024/05/07 13:31:34,560 [DEBUG] [org.springframework.web.servlet.handler.AbstractHandlerMapping] [http-nio-8080-exec-1]- Mapped to com.fastcampus.boardserver.controller.SnsController#subscribe(String, String)
+ -2024/05/07 13:31:35,516 [INFO ] [com.fastcampus.boardserver.controller.SnsController] [http-nio-8080-exec-1]- topicArn to subscribe = pending confirmation
+ -2024/05/07 13:31:35,559 [INFO ] [com.fastcampus.boardserver.controller.SnsController] [http-nio-8080-exec-1]- subscription list = ListSubscriptionsResponse(Subscriptions=[Subscription(SubscriptionArn=PendingConfirmation, Owner=781076985467, Protocol=https, Endpoint=https://webhook.site/23f4c3d9-a5cd-4883-88cf-5bb10b21865e, TopicArn=arn:aws:sns:ap-northeast-2:781076985467:notifly3)], NextToken=AAGSeKp+CLN6pzw/JbCpEzXuVRZ6BEMjWcdir52x08tcCQ==)
+ -2024/05/07 13:31:35,560 [DEBUG] [org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor] [http-nio-8080-exec-1]- Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json, application/cbor]
+ -2024/05/07 13:31:35,560 [DEBUG] [org.springframework.core.log.LogFormatUtils] [http-nio-8080-exec-1]- Writing ["TOPIC SUBSCRIBE SUCCESS"]
+ -2024/05/07 13:31:35,561 [DEBUG] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-1]- Completed 200 OK
+ -2024/05/07 13:34:51,586 [DEBUG] [org.springframework.core.log.LogFormatUtils] [http-nio-8080-exec-7]- POST "/publish?topicArn=arn:aws:sns:ap-northeast-2:781076985467:notifly3", parameters={masked}
+ -2024/05/07 13:34:51,587 [DEBUG] [org.springframework.web.servlet.handler.AbstractHandlerMapping] [http-nio-8080-exec-7]- Mapped to com.fastcampus.boardserver.controller.SnsController#publish(String, Map)
+ -2024/05/07 13:34:51,634 [DEBUG] [org.springframework.core.log.LogFormatUtils] [http-nio-8080-exec-7]- Read "application/json;charset=UTF-8" to [{message=모니터링을 위한 알람입니다. notify3, number=1}]
+ -2024/05/07 13:34:51,713 [INFO ] [com.fastcampus.boardserver.controller.SnsController] [http-nio-8080-exec-7]- message status:200
+ -2024/05/07 13:34:51,717 [DEBUG] [org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor] [http-nio-8080-exec-7]- Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json, application/cbor]
+ -2024/05/07 13:34:51,717 [DEBUG] [org.springframework.core.log.LogFormatUtils] [http-nio-8080-exec-7]- Writing ["send MSG ID = fd9efa14-3a82-5d16-a5ef-a4a78b299470"]
+ -2024/05/07 13:34:51,717 [DEBUG] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-7]- Completed 200 OK
+ -2024/05/07 13:57:33,985 [DEBUG] [org.springframework.boot.availability.ApplicationAvailabilityBean] [SpringApplicationShutdownHook]- Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+ -2024/05/07 13:57:33,985 [DEBUG] [org.springframework.context.support.AbstractApplicationContext] [SpringApplicationShutdownHook]- Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@50b0bc4c, started on Tue May 07 13:26:27 KST 2024
+ -2024/05/07 13:57:33,987 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup] [SpringApplicationShutdownHook]- Stopping beans in phase 2147483647
+ -2024/05/07 13:57:33,988 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor] [SpringApplicationShutdownHook]- Bean 'applicationTaskExecutor' completed its stop procedure
+ -2024/05/07 13:57:33,988 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup] [SpringApplicationShutdownHook]- Stopping beans in phase 2147482623
+ -2024/05/07 13:57:33,989 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor] [SpringApplicationShutdownHook]- Bean 'webServerGracefulShutdown' completed its stop procedure
+ -2024/05/07 13:57:33,989 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup] [SpringApplicationShutdownHook]- Stopping beans in phase 2147481599
+ -2024/05/07 13:57:34,012 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor] [SpringApplicationShutdownHook]- Bean 'webServerStartStop' completed its stop procedure
+ -2024/05/07 13:57:34,012 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup] [SpringApplicationShutdownHook]- Stopping beans in phase 0
+ -2024/05/07 13:57:34,139 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor] [SpringApplicationShutdownHook]- Bean 'redisConnectionFactory' completed its stop procedure
+ -2024/05/07 13:57:34,139 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup] [SpringApplicationShutdownHook]- Stopping beans in phase -2147483647
+ -2024/05/07 13:57:34,140 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor] [SpringApplicationShutdownHook]- Bean 'springBootLoggingLifecycle' completed its stop procedure
+ -2024/05/07 13:57:34,143 [DEBUG] [org.springframework.beans.factory.support.DisposableBeanAdapter] [SpringApplicationShutdownHook]- Custom destroy method 'shutdown' on bean with name 'lettuceClientResources' completed asynchronously
+ -2024/05/07 13:57:34,143 [DEBUG] [org.springframework.jmx.export.MBeanExporter] [SpringApplicationShutdownHook]- Unregistering JMX-exposed beans on shutdown
+ -2024/05/07 13:57:34,144 [DEBUG] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport] [SpringApplicationShutdownHook]- Shutting down ExecutorService 'applicationTaskExecutor'
+ -

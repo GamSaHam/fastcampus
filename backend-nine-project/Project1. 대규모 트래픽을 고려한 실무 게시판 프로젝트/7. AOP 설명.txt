@@ -1,0 +1,12 @@
+Aspect
+Advice
+Join Point
+Pointcut
+Weaving
+Around
+
+DynamicProxy 
+
+JDK Dynamic Proxy: JDK java.lang.reflect.Proxy 클래스를 사용하여 인터페이스 기반의 프록시를 생성
+CGLIB Proxy: CGLIB(Clas Generation Libray)를 사용하여 클래스 기반의 프록시를 생성합니다.
+

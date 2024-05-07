@@ -1,0 +1,2 @@
+spring initializr 항목에서
+jar, war 설명하는 구문이 있는데 war는 화면단을 포할할때 사용한다고 한다.
