@@ -49,6 +49,11 @@ dependencies {
 	implementation("com.slack.api:bolt-servlet:1.18.0")
 	implementation("com.slack.api:bolt-jetty:1.18.0")
 
+	// Slack
+	implementation("com.slack.api:bolt:1.18.0")
+	implementation("com.slack.api:bolt-servlet:1.18.0")
+	implementation("com.slack.api:bolt-jetty:1.18.0")
+
 	// Mysql
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
@@ -57,7 +62,6 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	compileOnly group: 'org.springframework.cloud', name: 'spring-cloud-aws-messaging', version: '2.2.1.RELEASE'
 	compileOnly group: 'org.springframework.cloud', name: 'spring-cloud-aws-autoconfigure', version: '2.2.1.RELEASE'
-
 
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

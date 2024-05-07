@@ -46,5 +46,9 @@ could:
       auto: false
 
 
+slack:
+  token: 3
+
+
 
 

@@ -1,6 +1,7 @@
 package com.fastcampus.boardserver.controller;
 
 import com.fastcampus.boardserver.config.AWSConfig;
+import com.fastcampus.boardserver.service.SlackService;
 import com.fastcampus.boardserver.service.SnsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,8 +18,8 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 public class SnsController {
-    private final AWSConfig awsConfig;
     private final SnsService snsService;
+    private final SlackService slackService;
 
     @PostMapping("/create-topic")
     public ResponseEntity<String> createTopic(@RequestParam final String topicName) {
@@ -95,12 +96,11 @@ public class SnsController {
     // 데이터를 보내면 된다.
 
 
-    // slack
-//    @GetMapping("/slack/error")
-//    public void error() {
-//        log.info("슬랙 error 채널 테스트");
-//        slackService.sendSlackMessage("슬랙 에러 테스트", "error");
-//    }
+    @GetMapping("/slack/error")
+    public void error() {
+        log.info("슬랙 error 채널 테스트");
+        slackService.sendSlackMessage("슬랙 에러 테스트", "error");
+    }
 
 
 
