@@ -1,4 +1,35 @@
-2024/05/07 16:24:35,972 [INFO ] [org.springframework.boot.StartupInfoLogger] [main]- Started BoardserverApplication in 5.31 seconds (process running for 7.002)
- -2024/05/07 16:24:36,001 [DEBUG] [org.springframework.boot.availability.ApplicationAvailabilityBean] [main]- Application availability state LivenessState changed to CORRECT
- -2024/05/07 16:24:36,005 [DEBUG] [org.springframework.boot.availability.ApplicationAvailabilityBean] [main]- Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2024/05/08 11:21:26,591 [INFO ] [org.springframework.boot.StartupInfoLogger] [main]- Started BoardserverApplication in 4.991 seconds (process running for 7.502)
+ -2024/05/08 11:21:26,605 [DEBUG] [org.springframework.boot.availability.ApplicationAvailabilityBean] [main]- Application availability state LivenessState changed to CORRECT
+ -2024/05/08 11:21:26,608 [DEBUG] [org.springframework.boot.availability.ApplicationAvailabilityBean] [main]- Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+ -2024/05/08 11:22:00,340 [INFO ] [org.apache.juli.logging.DirectJDKLog] [http-nio-8080-exec-1]- Initializing Spring DispatcherServlet 'dispatcherServlet'
+ -2024/05/08 11:22:00,341 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-1]- Initializing Servlet 'dispatcherServlet'
+ -2024/05/08 11:22:00,341 [DEBUG] [org.springframework.web.servlet.DispatcherServlet] [http-nio-8080-exec-1]- Detected StandardServletMultipartResolver
+ -2024/05/08 11:22:00,341 [DEBUG] [org.springframework.web.servlet.DispatcherServlet] [http-nio-8080-exec-1]- Detected AcceptHeaderLocaleResolver
+ -2024/05/08 11:22:00,342 [DEBUG] [org.springframework.web.servlet.DispatcherServlet] [http-nio-8080-exec-1]- Detected FixedThemeResolver
+ -2024/05/08 11:22:00,343 [DEBUG] [org.springframework.web.servlet.DispatcherServlet] [http-nio-8080-exec-1]- Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3b61f9a5
+ -2024/05/08 11:22:00,343 [DEBUG] [org.springframework.web.servlet.DispatcherServlet] [http-nio-8080-exec-1]- Detected org.springframework.web.servlet.support.SessionFlashMapManager@1c22f194
+ -2024/05/08 11:22:00,343 [DEBUG] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-1]- enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+ -2024/05/08 11:22:00,344 [INFO ] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-1]- Completed initialization in 2 ms
+ -2024/05/08 11:22:00,353 [DEBUG] [org.springframework.core.log.LogFormatUtils] [http-nio-8080-exec-1]- GET "/slack/error", parameters={}
+ -2024/05/08 11:22:00,365 [DEBUG] [org.springframework.web.servlet.handler.AbstractHandlerMapping] [http-nio-8080-exec-1]- Mapped to com.fastcampus.boardserver.controller.SnsController#error()
+ -2024/05/08 11:22:00,375 [INFO ] [com.fastcampus.boardserver.controller.SnsController] [http-nio-8080-exec-1]- 슬랙 error 채널 테스트
+ -2024/05/08 11:22:01,670 [INFO ] [com.fastcampus.boardserver.service.SlackService] [http-nio-8080-exec-1]- Slackerror 에 메시지 보냄
+ -2024/05/08 11:22:01,694 [DEBUG] [org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor] [http-nio-8080-exec-1]- Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/cbor]
+ -2024/05/08 11:22:01,695 [DEBUG] [org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor] [http-nio-8080-exec-1]- Nothing to write: null body
+ -2024/05/08 11:22:01,696 [DEBUG] [org.springframework.web.servlet.FrameworkServlet] [http-nio-8080-exec-1]- Completed 200 OK
+ -2024/05/08 11:46:14,746 [DEBUG] [org.springframework.boot.availability.ApplicationAvailabilityBean] [SpringApplicationShutdownHook]- Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+ -2024/05/08 11:46:14,747 [DEBUG] [org.springframework.context.support.AbstractApplicationContext] [SpringApplicationShutdownHook]- Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@54a3ab8f, started on Wed May 08 11:21:22 KST 2024
+ -2024/05/08 11:46:14,749 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup] [SpringApplicationShutdownHook]- Stopping beans in phase 2147483647
+ -2024/05/08 11:46:14,749 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor] [SpringApplicationShutdownHook]- Bean 'applicationTaskExecutor' completed its stop procedure
+ -2024/05/08 11:46:14,749 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup] [SpringApplicationShutdownHook]- Stopping beans in phase 2147482623
+ -2024/05/08 11:46:14,750 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor] [SpringApplicationShutdownHook]- Bean 'webServerGracefulShutdown' completed its stop procedure
+ -2024/05/08 11:46:14,750 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup] [SpringApplicationShutdownHook]- Stopping beans in phase 2147481599
+ -2024/05/08 11:46:14,783 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor] [SpringApplicationShutdownHook]- Bean 'webServerStartStop' completed its stop procedure
+ -2024/05/08 11:46:14,783 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup] [SpringApplicationShutdownHook]- Stopping beans in phase 0
+ -2024/05/08 11:46:14,909 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor] [SpringApplicationShutdownHook]- Bean 'redisConnectionFactory' completed its stop procedure
+ -2024/05/08 11:46:14,909 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup] [SpringApplicationShutdownHook]- Stopping beans in phase -2147483647
+ -2024/05/08 11:46:14,910 [DEBUG] [org.springframework.context.support.DefaultLifecycleProcessor] [SpringApplicationShutdownHook]- Bean 'springBootLoggingLifecycle' completed its stop procedure
+ -2024/05/08 11:46:14,911 [DEBUG] [org.springframework.beans.factory.support.DisposableBeanAdapter] [SpringApplicationShutdownHook]- Custom destroy method 'shutdown' on bean with name 'lettuceClientResources' completed asynchronously
+ -2024/05/08 11:46:14,912 [DEBUG] [org.springframework.jmx.export.MBeanExporter] [SpringApplicationShutdownHook]- Unregistering JMX-exposed beans on shutdown
+ -2024/05/08 11:46:14,912 [DEBUG] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport] [SpringApplicationShutdownHook]- Shutting down ExecutorService 'applicationTaskExecutor'
  -
